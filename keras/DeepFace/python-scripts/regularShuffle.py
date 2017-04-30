@@ -31,16 +31,16 @@ def shuffle(neg_file,pos_file,output):
         while  x < POS_BATCH and  j < m:
             line = posLines[j]
             outputFile.write(line.strip() +'\n')
-        x = x + 1 
-        j = j + 1
+            x = x + 1 
+            j = j + 1
 
 
         k = 0
         while  k < NEG_BATCH and  i < n:
             line = negLines[i]
             outputFile.write(line.strip() +'\n')		
-        k = k + 1 
-        i = i + 1
+            k = k + 1 
+            i = i + 1
             
 
 
