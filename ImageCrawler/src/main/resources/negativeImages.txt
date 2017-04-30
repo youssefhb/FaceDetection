@@ -1,0 +1,14 @@
+rubik cube
+cat
+dog
+elephant
+hand
+building
+table
+plane
+computer
+cup
+apple
+fruit
+monkey
+HAT
