@@ -12,3 +12,10 @@ apple
 fruit
 monkey
 HAT
+vache
+city
+sandwitch
+outdoor window
+background house
+nature wild
+nature building

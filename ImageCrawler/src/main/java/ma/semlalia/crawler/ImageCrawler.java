@@ -84,30 +84,29 @@ public class ImageCrawler {
 
 					String urlStr = m.group(2);
 					URL imgUrl;
-					
-					if(urlStr.contains(".jpg")){
-						urlStr = urlStr.substring(0,urlStr.indexOf(".jpg")+4);
-					}
-					
-					imgUrl = new URL(urlStr);
-					
 
-					writer.write(urlStr+"\n");
-					System.out.println(urlStr);
+					if (urlStr.contains(".jpg")) {
+						urlStr = urlStr.substring(0, urlStr.indexOf(".jpg") + 4);
+					}
 
 					try {
+
+						imgUrl = new URL(urlStr);
+						writer.write(urlStr + "\n");
+						System.out.println(urlStr);
 						image = ImageIO.read(imgUrl);
-						
+
 						if (image != null) {
-							ImageIO.write(image, "jpg", new File("images/" + query + "_" + count + ".jpg"));
+							ImageIO.write(image, "jpg",
+									new File("/data/negativesImages/wild/" + query + "_" + count + ".jpg"));
 						}
 
 					} catch (Exception e) {
 						continue;
 					}
-					
+
 					count++;
-					System.out.println("Number of image downloaded = "+count);
+					System.out.println("Number of image downloaded = " + count);
 
 				} else {
 					System.out.println("NO MATCH");
