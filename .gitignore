@@ -2,4 +2,5 @@ ImageCrawler/.classpath
 ImageCrawler/.project
 ImageCrawler/.settings/
 ImageCrawler/target/
+caffe/AFLW.lmdb*
 
