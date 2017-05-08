@@ -1,0 +1,14 @@
+net: "PubFigLFW_pascal_train_test_137x137.prototxt"
+test_iter: 1000
+test_interval: 1000
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.1
+stepsize: 5000
+display: 100
+max_iter: 10000
+momentum: 0.9
+weight_decay: 0.004
+snapshot: 5000
+snapshot_prefix: "PubFigLFW-pascal-137x137"
+solver_mode: GPU

@@ -56,6 +56,36 @@ function cropNegativeWildImages {
 }
 
 
+######################################################################
+#
+#  deletes files that don't have dimension ${WIDTH}x${HEIGHT}
+#
+######################################################################
+function cleanNegativeImg {
+  echo "cleanNegativeImg"
+  IMAGES_DIR="${OUTPUT_NEG_IMG_DIR}/${WIDTH}x${HEIGHT}/"  
+  FILES=`ls ${IMAGES_DIR} | sort --version-sort -f`
+  for f in $FILES
+  do
+    echo $f
+    FILE_NAME=`echo "$f" | cut -d'.' -f1`
+    #convert ${IMAGES_DIR}$f  -resize  ${WIDTH}x${HEIGHT}\!  "${IMAGES_DIR}$f"
+    
+    W=`identify -format %w ${IMAGES_DIR}$f`
+    H=`identify -format %h ${IMAGES_DIR}$f`
+    if [ $W -lt  ${WIDTH}  ]  || [  $H -lt  ${HEIGHT} ] ; then 
+         echo $W $H
+         rm  ${IMAGES_DIR}$f
+         continue
+         #convert ${IMAGES_DIR}$f  -resize  ${WIDTH}x${HEIGHT}\!  "${IMAGES_DIR}$f"
+    fi;   
+    #convert "${IMAGES_DIR}$f"  -distort SRT  10 ${IMAGES_DIR}/$FILE_NAME'_10_rotated'.jpg    
+    #convert "${IMAGES_DIR}$f"  -distort SRT -10 ${IMAGES_DIR}/$FILE_NAME'__10_rotated'.jpg    
+  done
+  
+}
+
+
 
 ########################
 # Call of the function
