@@ -1,4 +1,4 @@
-net: "AFLW-ALEXNET_train_test_137x137.prototxt"
+net: "AFLW-ALEXNET_train_test.prototxt"
 test_iter: 1000
 test_interval: 1000
 base_lr: 0.001
@@ -6,9 +6,9 @@ lr_policy: "step"
 gamma: 0.1
 stepsize: 5000
 display: 100
-max_iter: 10000
+max_iter: 40000
 momentum: 0.9
 weight_decay: 0.004
 snapshot: 5000
-snapshot_prefix: "AFLW-ALEXNET-137x137"
+snapshot_prefix: "./models/87x87/AFLW-ALEXNET-87x87"
 solver_mode: GPU
