@@ -30,7 +30,7 @@
 
 
 
-7 - Copy the negative and postive images to the same folder
+6 - Copy the negative and postive images to the same folder
 ------------------------------------------------------------
 cp /data/AFLW/cropped/227/0/*    /data/face-detection-data/
 cp /data/AFLW/cropped/227/2/*    /data/face-detection-data/
@@ -38,6 +38,12 @@ cp /data/AFLW/cropped/227/3/*    /data/face-detection-data/
 for f in /data/negativesImages/227x227/*; do cp  $f  /data/face-detection-data; done
 
 
-6 - Create the Caffe Database   in leveldb or LMDB
+7 - Specify the size of the image to resize to 
+    and create the database in leveldb or LMDB
 ---------------------------------------------------
 ./bash/create_db.sh
+
+
+7 - train the model
+-------------------
+./bash/train_aflw.sh
