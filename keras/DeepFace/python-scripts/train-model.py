@@ -3,6 +3,7 @@
 from keras.models import Model
 from keras import regularizers
 from keras.utils.visualize_util import plot
+from keras.utils import np_utils
 from KerasLayers.Custom_layers import LRN2D
 
 from keras.initializers import Constant,RandomNormal
@@ -10,8 +11,8 @@ from keras.initializers import Constant,RandomNormal
 from keras.layers.core import Flatten, Dense, Dropout
 from keras.layers import Reshape, Permute, Activation, Input, merge
 from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D, Conv2D
+
 from keras.optimizers import SGD
-from keras.utils import np_utils
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint
 from keras.callbacks import LearningRateScheduler
@@ -29,15 +30,15 @@ from alexnet_base import *
 # =================================================
 #               Global constants
 # =================================================
-NB_CLASS = 2         # number of classes
+NB_CLASS      = 2       # number of classes
 LEARNING_RATE = 0.01
-MOMENTUM = 0.9
-ALPHA = 0.0001
-BETA = 0.75
-GAMMA = 0.1
-DROPOUT = 0.5
-WEIGHT_DECAY = 0.0005
-LRN2D_norm = True       # whether to use batch normalization
+MOMENTUM      = 0.9
+ALPHA         = 0.0001
+BETA          = 0.75
+GAMMA         = 0.1
+DROPOUT       = 0.5
+WEIGHT_DECAY  = 0.0005
+LRN2D_norm    = True       # whether to use batch normalization
 # Theano - 'th' (channels, width, height)
 # Tensorflow - 'tf' (width, height, channels)
 DIM_ORDERING = 'th'
@@ -45,6 +46,8 @@ class_mode = 'categorical'
 #class_mode = 'binary'
 
 
+img_w = 227
+img_h = 227
 
 # =================================================
 # learning rate schedule
@@ -52,8 +55,8 @@ class_mode = 'categorical'
 # =================================================
 def step_decay(epoch):
     initial_lrate = 0.001
-    drop = 0.5
-    epochs_drop = 100.0
+    drop          = 0.5
+    epochs_drop   = 100.0
     lrate = initial_lrate * math.pow(drop, math.floor((1+epoch)/epochs_drop))
     return lrate
 
